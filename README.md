@@ -8,7 +8,7 @@
 | David       | 01/04/2016   | 15/04/2016   |
 | Emile       | DD/MM/YYYY   | 15/04/2016   |
 | Fareed      | DD/MM/YYYY   | 18/04/2016   |
-| Luke        | 23/03/2016   | DD/MM/YYYY   |
+| Luke        | 23/03/2016   | 19/04/2016   |
 | Nick        | 05/02/2016   | DD/MM/YYYY   |
 | Richard     | DD/MM/YYYY   | 20/04/2016   |
 | Rory        | 14/04/2016   | DD/MM/YYYY   |
