@@ -1,7 +1,10 @@
 require 'date'
 
 class NaughtyList
-  def initialize
+  def initialize(file, days)
+    @file = file
+    @days = days
+
     report(naughty_people)
   end
 
@@ -20,11 +23,11 @@ class NaughtyList
   end
 
   def people
-    File.open('README.md').map { |line| name_and_last_date(line) }.compact
+    File.open(@file).map { |line| name_and_last_date(line) }.compact
   end
 
   def naughty?(name, last_date)
-    last_date + 10 < Date.today
+    last_date + @days < Date.today
   end
 
   def name_and_last_date(line)
@@ -34,4 +37,4 @@ class NaughtyList
   end
 end
 
-NaughtyList.new
+NaughtyList.new('README.md', 14)
