@@ -10,7 +10,7 @@
 | Fareed      | DD/MM/YYYY   | 18/04/2016   |
 | Luke        | 23/03/2016   | DD/MM/YYYY   |
 | Nick        | 05/02/2016   | DD/MM/YYYY   |
-| Richard     | DD/MM/YYYY   | DD/MM/YYYY   |
+| Richard     | DD/MM/YYYY   | 20/04/2016   |
 | Rory        | 14/04/2016   | DD/MM/YYYY   |
 | Scott       | DD/MM/YYYY   | 15/04/2016   |
 | Seb         | 10/03/2016   | DD/MM/YYYY   |
