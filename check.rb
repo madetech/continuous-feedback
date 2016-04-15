@@ -1,6 +1,7 @@
 require 'date'
 
 class NaughtyList
+  attr_reader :file, :days
   def initialize(file, days)
     @file = file
     @days = days
@@ -23,11 +24,11 @@ class NaughtyList
   end
 
   def people
-    File.open(@file).map { |line| name_and_last_date(line) }.compact
+    File.open(file).map { |line| name_and_last_date(line) }.compact
   end
 
   def naughty?(name, last_date)
-    last_date + @days < Date.today
+    last_date + days < Date.today
   end
 
   def name_and_last_date(line)
