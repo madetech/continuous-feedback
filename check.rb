@@ -1,16 +1,37 @@
-bad_ones = []
+require 'date'
 
-File.open('README.md').grep(/[0-9]{2}   \| /).each do |line|
-  matches = /\| (\w+)\s+\| ([0-9]{2}\/[0-9]{2}\/[0-9]{4})   \|/.match(line)
-  last_session = matches[2].split('/').map(&:to_i).reverse
-  last_session_date = Time.new(*last_session)
-  deadline = Time.now.to_i - (60 * 60 * 24 * 14)
-  if deadline > last_session_date.to_i
-    bad_ones << line
+class NaughtyList
+  def initialize
+    report(naughty_people)
+  end
+
+  private
+
+  def report(naughty_people)
+    if naughty_people.count > 0
+      puts 'Some people have not had a 1-2-1 recently...'
+      puts naughty_people
+      exit 1
+    end
+  end
+
+  def naughty_people
+    people.keep_if { |person| naughty?(*person) }
+  end
+
+  def people
+    File.open('README.md').map { |line| name_and_last_date(line) }.compact
+  end
+
+  def naughty?(name, last_date)
+    last_date + 10 < Date.today
+  end
+
+  def name_and_last_date(line)
+    name, last_date = line.split('|').map(&:strip).delete_if(&:empty?).compact
+    [name, Date.strptime(last_date, '%d/%m/%Y')]
+  rescue
   end
 end
 
-if bad_ones.size > 0
-  puts bad_ones
-  abort('Some people have not had a 1-2-1 recently...')
-end
+NaughtyList.new
